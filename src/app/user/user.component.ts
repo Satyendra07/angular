@@ -1,6 +1,5 @@
-import { Component, computed, signal } from '@angular/core';
-import { DUMMY_USERS } from './dummy-users';
-import { DomSanitizer } from '@angular/platform-browser';
+import { Component, computed, input, Input, signal } from '@angular/core';
+import { DUMMY_USERS } from '../dummy-users';
 
 @Component({
   selector: 'app-user',
@@ -10,11 +9,18 @@ import { DomSanitizer } from '@angular/platform-browser';
 })
 export class UserComponent {
 
+  // @Input({required: true}) avatar!: string;
+  // @Input() name!: string;
+
+   avatar = input.required<string>();
+   name = input.required<string>();
   selectedUser = signal(DUMMY_USERS[this.randomNumber]);
-  imgPath = computed(() => '/' + this.selectedUser().avatar);
+  imgPath = computed(() => {
+    return '/' + this.avatar()});
 
   // get imgPath(){
-  //   return '/' + this.selectedUser().avatar;
+  //   console.log(this.selectedUser().avatar);
+  //   return '/' + this.avatar;
   // }
 
   get randomNumber(){

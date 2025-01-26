@@ -1,8 +1,8 @@
 
 <app-header></app-header>
 <main>
-  <ul>
-    <app-user></app-user>
+  <ul *ngFor="let user of users">
+    <app-user [avatar]="user.avatar" [name]="user.name"></app-user>
   </ul>
 </main>
 <router-outlet />
