@@ -1,8 +1,10 @@
 
 <app-header></app-header>
+Selected user: {{selectedUser}}
 <main>
   <ul *ngFor="let user of users">
-    <app-user [avatar]="user.avatar" [name]="user.name"></app-user>
+    <app-user [avatar]="user.avatar" [name]="user.name" [id]="user.id" (select)="Selected($event)"></app-user>
   </ul>
 </main>
+
 <router-outlet />

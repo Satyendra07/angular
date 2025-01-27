@@ -14,4 +14,9 @@ import { CommonModule } from '@angular/common';
 export class AppComponent {
   title = 'angular-practice';
   users = DUMMY_USERS;
+  selectedUser = this.users[0].name;
+
+  Selected(event:string){
+    this.selectedUser = this.users.filter(u=> u.id === event)[0].name;
+  }
 }
