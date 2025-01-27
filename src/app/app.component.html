@@ -1,10 +1,21 @@
 
 <app-header></app-header>
-Selected user: {{selectedUser}}
+
 <main>
-  <ul *ngFor="let user of users">
-    <app-user [avatar]="user.avatar" [name]="user.name" [id]="user.id" (select)="Selected($event)"></app-user>
+  <ul id="users">
+    <!-- @for , @if @else for introduced in Angular 17  -->
+    @for(user of users; track user.id){
+      <li>
+        <app-user [avatar]="user.avatar" [name]="user.name" [id]="user.id" (select)="Selected($event)" [isSelected]="user.id==selectedUser"></app-user>
+      </li>
+    }
+    
   </ul>
+  @if(selectedUserName){
+    Selected user: {{selectedUserName}}
+  } @else {
+    No user selected
+  }
 </main>
 
 <router-outlet />
