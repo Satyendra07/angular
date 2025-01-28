@@ -3,7 +3,8 @@ import { DUMMY_USERS } from '../dummy-users';
 
 @Component({
   selector: 'app-user',
-  imports: [],
+  standalone: false,
+  //imports: [],
   templateUrl: './user.component.html',
   styleUrl: './user.component.scss'
 })

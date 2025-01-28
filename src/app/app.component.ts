@@ -7,7 +7,8 @@ import { CommonModule } from '@angular/common';
 //decorator , to add metadata to the class
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, HeaderComponent, UserComponent, CommonModule],
+  standalone: false,
+  //imports: [RouterOutlet, HeaderComponent, UserComponent, CommonModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
